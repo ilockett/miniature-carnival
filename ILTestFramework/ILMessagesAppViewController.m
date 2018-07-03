@@ -10,7 +10,6 @@
 
 @interface ILMessagesAppViewController ()
 
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -18,7 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleLabel.text = @"Hello iMessage!";
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.translatesAutoresizingMaskIntoConstraints = false;
+    [self.view addSubview:label];
+    label.font = [UIFont systemFontOfSize:16.];
+    label.textColor = UIColor.darkGrayColor;
+    label.text = @"Hello iMessage";
+    [label.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    [label.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
 }
 
 @end
